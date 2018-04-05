@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.epam.ta.steps.Steps;
+import com.epam.ta.utils.Utils;
 
 public class GitHubAutomationTest
 {
@@ -19,6 +20,22 @@ public class GitHubAutomationTest
 		steps = new Steps();
 		steps.initBrowser();
 	}
+
+	@Test
+	public void updateRepoName()
+        {
+            steps.loginGithub(USERNAME, PASSWORD);
+            String name = "rename";
+            boolean result = steps.renameRepository(name + Utils.getRandomString(6), name + Utils.getRandomString(6));
+            Assert.assertTrue(result);
+        }
+
+	@Test
+        public void updateProfile()
+        {
+            steps.loginGithub(USERNAME, PASSWORD);
+            Assert.assertTrue(steps.updateProfile("my new name" + Utils.getRandomString(6)));
+        }
 
 	@Test
 	public void oneCanCreateProject()

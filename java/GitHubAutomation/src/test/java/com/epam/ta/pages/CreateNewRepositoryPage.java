@@ -23,7 +23,7 @@ public class CreateNewRepositoryPage extends AbstractPage
 	@FindBy(xpath = "//form[@id='new_repository']//button[@type='submit']")
 	private WebElement butttonCreate;
 
-	@FindBy(xpath = "//a[contains(@href,'/import')]/text()='Import code'")
+	@FindBy(xpath = "//div[@class='Box-row']/a[contains(@href,'/import')]")
 	private WebElement labelEmptyRepoSetupOption;
 
 	@FindBy(xpath = "//a[@data-pjax='#js-repo-pjax-container']")
